@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 main() {
-  int from, to, step;
-  float fahrenheit, celsius;
+  int from, to, step, fahrenheit, celsius;
   char separator;
 
   separator = '|';
@@ -10,19 +9,19 @@ main() {
   to = 300;
   step = 20;
 
-  fahrenheit = from;
+  celsius = from;
 
   printf("--------------------\n");
   printf("|   F   |    C     |\n");
 
-  while (fahrenheit <= to) {
-    celsius = (5.0 / 9.0) * (fahrenheit - 32.0);
+  while (celsius <= to) {
+    fahrenheit = (9.0 / 5.0 * celsius) + 32.0;
     printf("--------------------\n");
-    printf("%c  %3.0f  %c  %6.2f  %c\n", separator, fahrenheit, separator, celsius, separator);
+    printf("%c  %3d  %c  %6d  %c\n", separator, celsius, separator, fahrenheit, separator);
 
-    fahrenheit = fahrenheit + step;
+    celsius = celsius + step;
 
-    if (fahrenheit > to) {
+    if (celsius > to) {
       printf("--------------------\n");
     }
   }
