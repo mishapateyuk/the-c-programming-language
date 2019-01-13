@@ -1,27 +1,24 @@
 #include <stdio.h>
 
+#define FROM 300
+#define TO 0
+#define STEP 20
+
 main() {
-  int from, to, step, fahrenheit, celsius;
+  int fahrenheit, celsius;
   char separator;
 
   separator = '|';
-  from = 0;
-  to = 300;
-  step = 20;
-
-  celsius = from;
 
   printf("--------------------\n");
-  printf("|   F   |    C     |\n");
+  printf("|   C   |    F     |\n");
 
-  while (celsius <= to) {
+  for (celsius = FROM; celsius > TO; celsius -= STEP) {
     fahrenheit = (9.0 / 5.0 * celsius) + 32.0;
     printf("--------------------\n");
     printf("%c  %3d  %c  %6d  %c\n", separator, celsius, separator, fahrenheit, separator);
 
-    celsius = celsius + step;
-
-    if (celsius > to) {
+    if (celsius > TO) {
       printf("--------------------\n");
     }
   }
